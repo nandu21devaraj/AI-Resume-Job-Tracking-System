@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Upload Resume</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+<div class="sidebar">
+<h2>AI Tracker</h2>
+<a href="/">🏠 Dashboard</a>
+<a href="/upload">⬆ Upload Resume</a>
+<a href="/jobs">💼 Job Tracker</a>
+</div>
+
+<div class="main-content">
+
+<h1>Upload Resume</h1>
+
+<div class="job-form-card">
+
+<h3>Select your resume (PDF)</h3>
+
+<form action="/upload_resume" method="post" enctype="multipart/form-data">
+
+<input type="file" name="resume" required>
+
+<br><br>
+
+<button type="submit">Analyze Resume</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

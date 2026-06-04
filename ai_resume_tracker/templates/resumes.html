@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Resume Analysis</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="app-container">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+<h2>AI Tracker</h2>
+
+<a href="/">🏠 Dashboard</a>
+
+<a href="/upload">⬆ Upload Resume</a>
+
+
+<a href="/jobs">💼 Job Tracker</a>
+
+</div>
+
+<!-- MAIN -->
+<div class="main-content">
+
+<h1>Resume Analysis</h1>
+
+<div id="loadingText">Analyzing Resume...</div>
+
+<div class="analysis-container">
+
+<div class="analysis-box">
+<h2>ATS Score</h2>
+<h3>{{score}} / 100</h3>
+
+<div class="score-bar">
+<div class="score-fill" style="width: {{score}}%;"></div>
+</div>
+</div>
+
+<div class="analysis-box">
+<h2>Detected Skills</h2>
+
+{% if skills %}
+{% for skill in skills %}
+<span class="skill-badge">{{skill}}</span>
+{% endfor %}
+{% else %}
+<p>No skills detected</p>
+{% endif %}
+
+</div>
+
+</div>
+
+<!-- SKILL CHART -->
+<div class="analysis-box">
+<h2>Skill Visualization</h2>
+<canvas id="skillChart"></canvas>
+</div>
+
+<!-- JOBS -->
+<div class="analysis-box">
+<h2>Recommended Jobs</h2>
+
+{% if jobs %}
+{% for job in jobs %}
+<div class="job-card">{{job}}</div>
+{% endfor %}
+{% else %}
+<p>No job suggestions</p>
+{% endif %}
+
+</div>
+
+<!-- AI FEEDBACK -->
+<div class="analysis-box">
+<h2>AI Feedback</h2>
+<p>
+Improve your resume by adding missing technical skills,
+projects, and measurable achievements.
+</p>
+</div>
+
+<!-- MATCH -->
+<div class="analysis-box">
+<h2>Match Resume With Job</h2>
+
+<form action="/match_resume" method="post">
+<textarea name="jobdesc" rows="5" placeholder="Paste job description..." required></textarea>
+<br><br>
+<button type="submit">Analyze Match</button>
+</form>
+
+</div>
+
+</div>
+</div>
+
+<script>
+new Chart(document.getElementById("skillChart"),{
+type:"radar",
+data:{
+labels:["Python","SQL","HTML","CSS","ML","AWS"],
+datasets:[{
+data:[80,60,70,65,50,40],
+backgroundColor:"rgba(0,198,255,0.3)",
+borderColor:"#00c6ff"
+}]
+}
+});
+</script>
+
+<script>
+let t=document.getElementById("loadingText");
+let d=0;
+setInterval(()=>{
+d=(d+1)%4;
+t.innerHTML="Analyzing Resume"+".".repeat(d);
+},500);
+</script>
+
+</body>
+</html>

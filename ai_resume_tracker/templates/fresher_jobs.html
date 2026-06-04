@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Fresher Jobs</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<h1>Fresher Job Opportunities</h1>
+
+<table border="1" style="margin:auto">
+
+<tr>
+<th>Company</th>
+<th>Role</th>
+</tr>
+
+{% for j in jobs %}
+
+<tr>
+<td>{{j[0]}}</td>
+<td>{{j[1]}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+<br>
+
+<a href="/">Back to Dashboard</a>
+
+</body>
+
+</html>

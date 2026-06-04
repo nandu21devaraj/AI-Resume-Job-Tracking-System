@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Job Tracker</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+    <h2>AI Tracker</h2>
+
+    <a href="/">🏠 Dashboard</a>
+
+    <a href="/upload">⬆ Upload Resume</a>
+
+
+    <a href="/jobs">💼 Job Tracker</a>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <h1>Job Application Tracker</h1>
+
+        <!-- ADD JOB FORM -->
+        <div class="job-form-card">
+
+            <form action="/add_job" method="post">
+
+                <input type="text" name="company" placeholder="Company Name" required>
+
+                <input type="text" name="role" placeholder="Job Role" required>
+
+                <select name="status">
+                    <option value="Applied">Applied</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Offer">Offer</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+
+                <button type="submit">➕ Add Job</button>
+
+            </form>
+
+        </div>
+
+        
+        <!-- JOB TABLE -->
+        <div class="table-container">
+
+            <table>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Company</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+
+                {% for job in jobs %}
+
+                <tr>
+                    <td>{{job[0]}}</td>
+                    <td>
+                    <a href="/company/{{job[1]}}" class="company-link">
+                        <img src="{{ url_for('static', filename='images/' + job[1] + '.png') }}" class="company-logo-small">
+                        {{job[1]}}
+                    </a>
+                    </td>
+                    <td>{{job[2]}}</td>
+
+                    <td>
+                        <span class="status {{job[3]}}">
+                            {{job[3]}}
+                        </span>
+                    </td>
+
+                    <td>
+                        <a href="/delete_job/{{job[0]}}" class="delete-btn">Delete</a>
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+        <br>
+
+        <a href="/" class="back-btn">⬅ Back to Dashboard</a>
+
+    </div>
+
+</div>
+
+<!-- SEARCH SCRIPT -->
+<script>
+function searchJobs(){
+let input=document.getElementById("searchInput").value.toLowerCase();
+let rows=document.querySelectorAll("table tr");
+
+rows.forEach((row,index)=>{
+if(index===0) return;
+let text=row.innerText.toLowerCase();
+row.style.display=text.includes(input) ? "" : "none";
+});
+}
+</script>
+
+</body>
+
+</html>

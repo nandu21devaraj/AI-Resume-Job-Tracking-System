@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="app-container">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+<h2>AI Tracker</h2>
+
+<a href="/">🏠 Dashboard</a>
+
+<a href="/upload">⬆ Upload Resume</a>
+
+
+<a href="/jobs">💼 Job Tracker</a>
+
+</div>
+
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+<!-- HERO SECTION -->
+<div class="hero-section">
+
+<h1>AI Resume & Job Tracking System</h1>
+
+<p>
+Smart resume analysis, job matching, and application tracking —
+powered by AI.
+</p>
+
+
+</div>
+
+
+<!-- STATS -->
+<div class="stats-container">
+
+<div class="stat-card">
+<h2>{{resume_count}}</h2>
+<p>Resumes</p>
+</div>
+
+<div class="stat-card">
+<h2>{{job_count}}</h2>
+<p>Total Jobs</p>
+</div>
+
+<div class="stat-card">
+<h2>{{applied}}</h2>
+<p>Applied</p>
+</div>
+
+<div class="stat-card">
+<h2>{{interview}}</h2>
+<p>Interviews</p>
+</div>
+
+<div class="stat-card">
+<h2>{{offer}}</h2>
+<p>Offers</p>
+</div>
+
+<div class="stat-card">
+<h2>{{rejected}}</h2>
+<p>Rejected</p>
+</div>
+
+</div>
+
+
+<!-- CHART -->
+<div class="chart-box">
+<h2>Application Stats</h2>
+<canvas id="jobChart"></canvas>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CHART SCRIPT -->
+<script>
+new Chart(document.getElementById("jobChart"), {
+type: "bar",
+data: {
+labels: ["Applied","Interview","Offer","Rejected"],
+datasets: [{
+data: [{{applied}},{{interview}},{{offer}},{{rejected}}],
+backgroundColor:["#3498db","#f1c40f","#2ecc71","#e74c3c"]
+}]
+}
+});
+</script>
+
+</body>
+</html>

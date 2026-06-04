@@ -1,0 +1,530 @@
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(to right,#0f2027,#203a43,#2c5364);
+color:white;
+}
+
+/* Center everything properly */
+h1{
+text-align:center;
+margin-top:20px;
+font-size:40px;
+}
+
+/* MAIN CONTAINER */
+.analysis-container{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:40px;
+flex-wrap:wrap;
+}
+
+/* CARD STYLE */
+.analysis-box{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:15px;
+width:400px;
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+text-align:center;
+}
+
+/* SCORE BOX */
+.score-box{
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+padding:20px;
+border-radius:12px;
+color:white;
+font-size:22px;
+}
+
+/* PROGRESS BAR */
+.score-bar{
+width:100%;
+height:12px;
+background:#ccc;
+border-radius:10px;
+margin-top:10px;
+}
+
+.score-fill{
+height:100%;
+background:#2ecc71;
+border-radius:10px;
+}
+
+/* SKILLS BADGE */
+.skills{
+margin-top:10px;
+}
+
+.skill-badge{
+display:inline-block;
+background:#2ecc71;
+padding:8px 14px;
+border-radius:20px;
+margin:5px;
+font-size:14px;
+}
+
+/* JOB CARDS */
+.jobs-container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+margin-top:10px;
+}
+
+.job-card{
+background:#3498db;
+padding:10px 20px;
+border-radius:20px;
+font-weight:bold;
+}
+
+/* TEXTAREA */
+textarea{
+width:100%;
+padding:10px;
+border-radius:10px;
+border:none;
+}
+
+/* BUTTON */
+button{
+background:#00c6ff;
+border:none;
+padding:10px 20px;
+border-radius:20px;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#0072ff;
+}
+
+/* BACK BUTTON */
+.back-btn{
+display:block;
+width:200px;
+margin:30px auto;
+text-align:center;
+background:#00c6ff;
+padding:10px;
+border-radius:20px;
+color:white;
+text-decoration:none;
+}
+
+/* LOADING TEXT */
+#loadingText{
+text-align:center;
+color:#00c6ff;
+font-size:18px;
+margin-top:10px;
+}
+
+/* MATCH PAGE GRID */
+.match-container{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+margin:40px;
+}
+
+.match-container-bottom{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+margin:0 40px 40px 40px;
+}
+
+.match-card{
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* FIX CHART SIZE */
+canvas{
+max-width:300px !important;
+margin:auto;
+}
+
+/* NAV BUTTONS */
+.nav-buttons{
+display:flex;
+justify-content:center;
+gap:20px;
+margin-top:30px;
+}
+
+.nav-btn{
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+padding:12px 25px;
+border-radius:30px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+transition:0.3s;
+}
+
+.nav-btn:hover{
+transform:scale(1.05);
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+}
+
+/* STATS GRID */
+.stats-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+padding:40px;
+max-width:1000px;
+margin:auto;
+}
+
+.stat-card{
+background:rgba(255,255,255,0.08);
+padding:20px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 8px 20px rgba(0,0,0,0.4);
+}
+
+.stat-card h2{
+font-size:30px;
+margin:0;
+}
+
+.stat-card p{
+margin-top:5px;
+color:#ccc;
+}
+
+/* CHART BOX */
+.chart-box{
+width:500px;
+margin:40px auto;
+background:rgba(255,255,255,0.08);
+padding:20px;
+border-radius:15px;
+text-align:center;
+}
+
+/* COMPANY LINKS */
+.company-section{
+text-align:center;
+margin-top:40px;
+}
+
+.company-links a{
+margin:10px;
+display:inline-block;
+padding:10px 15px;
+background:#34495e;
+border-radius:10px;
+text-decoration:none;
+color:white;
+}
+
+.company-links a:hover{
+background:#00c6ff;
+}
+
+
+/* FORM CARD */
+.job-form-card{
+width:600px;
+margin:30px auto;
+padding:20px;
+background:rgba(255,255,255,0.08);
+border-radius:15px;
+text-align:center;
+box-shadow:0 8px 25px rgba(0,0,0,0.4);
+}
+
+.job-form-card input,
+.job-form-card select{
+padding:10px;
+margin:10px;
+border:none;
+border-radius:8px;
+width:150px;
+}
+
+.job-form-card button{
+padding:10px 20px;
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+border:none;
+border-radius:20px;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+.job-form-card button:hover{
+transform:scale(1.05);
+}
+
+/* TABLE */
+.table-container{
+width:80%;
+margin:30px auto;
+overflow-x:auto;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:rgba(255,255,255,0.05);
+border-radius:10px;
+overflow:hidden;
+}
+
+th,td{
+padding:12px;
+text-align:center;
+}
+
+th{
+background:#0072ff;
+color:white;
+}
+
+tr:nth-child(even){
+background:rgba(255,255,255,0.05);
+}
+
+/* STATUS BADGES */
+.status{
+padding:5px 12px;
+border-radius:20px;
+font-size:12px;
+color:white;
+}
+
+.status.Applied{ background:#3498db; }
+.status.Interview{ background:#f1c40f; }
+.status.Offer{ background:#2ecc71; }
+.status.Rejected{ background:#e74c3c; }
+
+/* DELETE BUTTON */
+.delete-btn{
+color:white;
+background:#e74c3c;
+padding:6px 12px;
+border-radius:8px;
+text-decoration:none;
+}
+
+.delete-btn:hover{
+background:#c0392b;
+}
+
+
+/* APP LAYOUT */
+.app-container{
+display:flex;
+}
+
+/* SIDEBAR */
+.sidebar{
+width:220px;
+height:100vh;
+background:#0f2027;
+padding:20px;
+position:fixed;
+}
+
+.sidebar h2{
+color:#00c6ff;
+text-align:center;
+}
+
+.sidebar a{
+display:block;
+color:white;
+padding:12px;
+margin:10px 0;
+text-decoration:none;
+border-radius:8px;
+}
+
+.sidebar a:hover{
+background:#00c6ff;
+}
+
+/* MAIN CONTENT */
+.main-content{
+margin-left:240px;
+padding:20px;
+width:100%;
+}
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Upload Resume</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="app-container">
+
+<div class="sidebar">
+<h2>AI Tracker</h2>
+<a href="/">🏠 Dashboard</a>
+<a href="/upload" class="highlight-btn">
+⬆ Upload Resume
+</a>
+<a href="/jobs">📊 Job Tracker</a>
+</div>
+
+<div class="main-content">
+
+<h1>Upload Resume</h1>
+
+<div class="upload-box">
+
+<form action="/upload_resume" method="post" enctype="multipart/form-data">
+
+<input type="file" name="resume" required>
+
+<br><br>
+
+<button type="submit">Upload Resume</button>
+
+</form>
+
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
+
+
+/* HERO SECTION FIX */
+.hero-section{
+text-align:center;
+margin-top:30px;
+margin-bottom:40px;
+}
+
+/* TAGLINE FIX */
+.hero-section p{
+color:#cfd8dc;
+font-size:18px;
+margin-top:10px;
+}
+
+/* BIG UPLOAD BUTTON */
+.main-upload-btn{
+display:inline-block;
+margin-top:20px;
+padding:14px 30px;
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+color:white;
+border-radius:30px;
+font-size:18px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0 5px 20px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+.main-upload-btn:hover{
+transform:scale(1.05);
+}
+
+/* SIDEBAR ACTIVE BUTTON */
+.highlight-btn{
+background:#00c6ff;
+border-radius:8px;
+}
+
+
+
+/* COMPANY CARD */
+.company-card{
+width:500px;
+margin:40px auto;
+background:rgba(255,255,255,0.08);
+padding:30px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* LOGO */
+.company-logo{
+width:120px;
+margin-bottom:15px;
+}
+
+/* ABOUT */
+.company-about{
+color:#cfd8dc;
+margin:15px 0;
+}
+
+/* DETAILS */
+.company-details p{
+margin:10px 0;
+}
+
+/* VISIT BUTTON */
+.visit-btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 25px;
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+color:white;
+border-radius:25px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.visit-btn:hover{
+transform:scale(1.05);
+}
+
+
+
+/* COMPANY LINK */
+.company-link{
+display:flex;
+align-items:center;
+gap:10px;
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+}
+
+.company-link:hover{
+color:#00c6ff;
+transform:scale(1.03);
+}
+
+/* SMALL LOGO */
+.company-logo-small{
+width:30px;
+height:30px;
+border-radius:50%;
+background:white;
+padding:3px;
+}

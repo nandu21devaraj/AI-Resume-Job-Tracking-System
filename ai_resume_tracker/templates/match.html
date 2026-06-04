@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Match Report</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="app-container">
+
+<div class="sidebar">
+
+<h2>AI Tracker</h2>
+
+<a href="/">🏠 Dashboard</a>
+
+<a href="/upload">⬆ Upload Resume</a>
+
+
+<a href="/jobs">💼 Job Tracker</a>
+
+</div>
+
+<div class="main-content">
+
+<h1>Resume Match Analysis</h1>
+
+<div class="match-container">
+
+<div class="match-card">
+<h2>Match Rate</h2>
+<canvas id="matchChart"></canvas>
+</div>
+
+<div class="match-card">
+<h2>Matched Skills</h2>
+
+{% if matched %}
+{% for skill in matched %}
+<p>✔ {{skill}}</p>
+{% endfor %}
+{% else %}
+<p>No matching skills</p>
+{% endif %}
+
+</div>
+
+</div>
+
+<div class="match-container-bottom">
+
+<div class="match-card">
+<h2>Missing Skills</h2>
+
+{% if missing %}
+{% for skill in missing %}
+<p>✘ {{skill}}</p>
+{% endfor %}
+{% else %}
+<p>No missing skills</p>
+{% endif %}
+
+</div>
+
+<div class="match-card">
+<h2>AI Tips</h2>
+
+{% for tip in tips %}
+<p>{{tip}}</p>
+{% endfor %}
+
+</div>
+
+</div>
+
+<div class="match-card">
+
+<h2>Skill Comparison</h2>
+
+<table class="skill-table">
+
+<tr>
+<th>Skill</th>
+<th>Resume</th>
+<th>Job</th>
+</tr>
+
+{% for skill in job_skills %}
+<tr>
+<td>{{skill}}</td>
+<td>{% if skill in resume_skills %}✔{% else %}✘{% endif %}</td>
+<td>✔</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+</div>
+
+<script>
+new Chart(document.getElementById("matchChart"),{
+type:"doughnut",
+data:{
+labels:["Matched","Missing"],
+datasets:[{
+data:[{{match}},100-{{match}}],
+backgroundColor:["#2ecc71","#e74c3c"]
+}]
+}
+});
+</script>
+
+</body>
+</html>

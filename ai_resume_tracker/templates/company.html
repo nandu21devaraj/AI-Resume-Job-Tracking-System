@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>{{name}}</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="app-container">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<h2>AI Tracker</h2>
+<a href="/">🏠 Dashboard</a>
+<a href="/upload">⬆ Upload Resume</a>
+<a href="/jobs">💼 Job Tracker</a>
+</div>
+
+<!-- MAIN -->
+<div class="main-content">
+
+<h1>{{name}}</h1>
+
+<div class="company-card">
+
+<img src="{{ url_for('static', filename='images/' + company.logo) }}" class="company-logo">
+
+<h2>{{name}}</h2>
+
+<p class="company-about">{{company.about}}</p>
+
+<div class="company-details">
+
+<p><strong>Role:</strong> {{company.role}}</p>
+<p><strong>Skills:</strong> {{company.skills}}</p>
+<p><strong>Salary:</strong> {{company.salary}}</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
